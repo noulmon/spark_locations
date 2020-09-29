@@ -8,5 +8,5 @@ urlpatterns = [
     path('follow-user/', follow_user, name='follow_user'),
     path('unfollow-user/', unfollow_user, name='unfollow_user'),
     path('user-following-list/', user_following_list, name='user_following_list'),
-    path('user-checked_in-location/', user_checked_in_location, name='user_checked_in_location'),
+    path('user-checked_in-places/', user_checked_in_places, name='user_checked_in_places'),
 ]

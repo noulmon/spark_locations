@@ -1,11 +1,11 @@
 from rest_framework.response import Response
 
-from users.models import Place, UserCheckedInPlace, UserFollow
+from users.models import Place, UserCheckedInPlace, UserFollowing
 
 '''
 Views contains the pseudo-codes of the APIs/methods required for the user location applications to work.
 
-NB: Authentication and follow request accepting part is ignored. 
+NB: Authentication and follow request accepting/rejecting part is ignored. 
 '''
 
 
@@ -71,7 +71,7 @@ def follow_user(request):
         # checking whether request user is following the user to be followed
         if user.following.filter(following=to_follow).exists():
             # creating the following data based on user request
-            UserFollow.objects.create(user=user, following=to_follow)
+            UserFollowing.objects.create(user=user, following=to_follow)
 
             return Response(
                 {
@@ -106,7 +106,7 @@ def unfollow_user(request):
         # checking whether request user is following the user to be unfollowed
         if user.following.filter(following=to_unfollow).exists():
             # removing the following data from DB
-            UserFollow.objects.get(user=user, following=to_unfollow).delete()
+            UserFollowing.objects.get(user=user, following=to_unfollow).delete()
             return Response(
                 {
                     'success': True,
@@ -146,7 +146,7 @@ def user_following_list(request):
         raise e
 
 
-def user_checked_in_location(request):
+def user_checked_in_places(request):
     '''
     :return: the list of locations a particular user had checked-in
     '''

@@ -35,7 +35,7 @@ class UserCheckedInPlace(models.Model):
         return "{} checked into {}".format(self.user.username, self.place.name)
 
 
-class UserFollow(models.Model):
+class UserFollowing(models.Model):
     user = models.ForeignKey(User, related_name='following', on_delete=models.CASCADE)
     following = models.ForeignKey(User, related_name='followers', on_delete=models.CASCADE)
     followed_on = models.DateTimeField(auto_now_add=True)
