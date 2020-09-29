@@ -41,6 +41,7 @@ class UserFollow(models.Model):
     followed_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        # prevents duplication
         unique_together = ("user", "following")
 
     def __str__(self):
