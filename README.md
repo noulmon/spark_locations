@@ -33,3 +33,6 @@ The Spark Locations is a Django Application that let users follow one another. A
 - **_'user_checked_in_places'_**:
     - Retrieves the list of places a particular user had checked-in.
     - The requested user will provide a user_id as input and the list of all places the user had checked-in will be retrieved if only the request user is following that particular uer.
+
+
+Thank you.
